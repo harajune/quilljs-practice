@@ -9,6 +9,7 @@ import Header from 'quill/formats/header'
 import List, {ListItem} from 'quill/formats/list'
 import Underline from 'quill/formats/underline'
 import Link from 'quill/formats/link'
+import Image from 'quill/formats/image'
 
 import 'quill/dist/quill.snow.css'
 import './editor.sass'
@@ -23,16 +24,23 @@ Quill.register({
   'formats/list': List,
   'formats/list-item': ListItem,
   'formats/underline': Underline,
-  'formats/link': Link
+  'formats/link': Link,
+  'formats/image': Image
 })
 
-const editor = new Quill(
-  '#editor',
+const toolbarOptions = [
+  ['bold', 'italic', 'underline', 'image'],
+  [{'header': 1}, {'header': 2}],
+  [{'list': 'ordered'}, {'list': 'bullet'}, {'list': 'check'}],
+  ['clean']
+]
+
+export const editor = new Quill(
+  '#editorArea',
   {
     modules: {
-      toolbar: true
+      toolbar: toolbarOptions
     },
     theme: 'snow'
   }
 )
-

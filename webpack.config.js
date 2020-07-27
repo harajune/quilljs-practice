@@ -5,6 +5,7 @@ module.exports = {
   mode: "development",
   output: {
     path: __dirname + "/dist",
+    library: "memoro",
     filename: "bundle.js"
   },
   resolve: {
